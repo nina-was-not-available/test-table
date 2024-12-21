@@ -1,0 +1,1 @@
+export { default as IconNavArrow } from './nav-arrow.svg'

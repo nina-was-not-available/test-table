@@ -1,0 +1,15 @@
+.ui_menu {
+  position: relative;
+
+  height: 0;
+  width: 100%;
+
+  transition: 0.3s;
+  z-index: 2;
+
+  &__container {
+    position: absolute;
+    z-index: 10;
+  }
+}
+

@@ -1,0 +1,32 @@
+.ui_input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 42rem;
+  padding: 14rem;
+
+  border: 1rem solid #E6ECEF;
+  border-radius: 4rem;
+
+  &__input {
+    width: 100%;
+    height: 100%;
+
+    font-size: 12rem;
+
+    color: #000000;
+
+    &::placeholder {
+      color: #868A8D;
+    }
+  }
+
+  &__icon {
+    width: 14rem;
+    height: 14rem;
+
+    margin-left: 14rem;
+  }
+}

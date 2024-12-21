@@ -1,0 +1,77 @@
+.ui_select {
+  $self: &;
+  $state-open: #{$self}__open;
+
+  position: relative;
+
+  width: 100%;
+  height: 42rem;
+
+  border: 1rem solid #E6ECEF;
+  border-radius: 4rem;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+    padding: 14rem;
+
+    cursor: pointer;
+  }
+
+  &__inner {
+    font-size: 12rem;
+    color: #868A8D;
+  }
+
+  &__icon {
+    width: 14rem;
+    height: 14rem;
+
+    margin-left: 14rem;
+
+    transition: transform 0.3s ease;
+
+    #{$state-open} & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__body {
+    position: absolute;
+    top: calc(100% + 2rem);
+    left: 0;
+
+    width: 100%;
+    padding-inline: 14rem;
+
+    border-radius: 4rem;
+    border: 1rem solid #E6ECEF;
+    background-color: #ffffff;
+    box-shadow: 0 2rem 8rem 0 rgba(0, 0, 0, 0.08);
+  }
+
+  &__option {
+    padding-block: 14rem;
+    font-size: 12rem;
+
+    color: #868A8D;
+    border-bottom: 1rem solid #E6ECEF;
+
+    transition: color, font-weight 0.3s ease;
+
+    cursor: pointer;
+
+    &:hover {
+      font-weight: bold;
+      color: #000000;
+    }
+  }
+
+  &__last_item {
+    border-bottom: none;
+  }
+}

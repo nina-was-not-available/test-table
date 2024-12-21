@@ -1,0 +1,43 @@
+.ui_button {
+  $self: &;
+
+  $state-full: #{$self}__full;
+
+  $state-size-sm: #{$self}__size_sm;
+  $state-size-md: #{$self}__size_md;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  width: 220rem;
+
+  border: none;
+  color: #FFFFFF;
+
+  cursor: pointer;
+
+  &#{$state-full} {
+    width: 100%;
+  }
+
+  &#{$state-size-sm} {
+    height: 42rem;
+
+    font-size: 12rem;
+
+    border-radius: 4rem;
+    background-color: #1493FE;
+  }
+
+  &#{$state-size-md} {
+    height: 50rem;
+
+    font-size: 16rem;
+
+    border-radius: 2rem;
+    background-color: #1193FF;
+  }
+
+}

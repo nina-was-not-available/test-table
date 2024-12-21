@@ -1,0 +1,16 @@
+.ui_interactive_menu {
+  position: relative;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16rem;
+
+    width: 280rem;
+    padding: 20rem 16rem;
+
+    border-radius: 4rem;
+    border: 1rem solid #E6ECEF;
+    box-shadow: 0 4rem 4rem 0 rgba(0, 0, 0, 0.15);
+  }
+}
