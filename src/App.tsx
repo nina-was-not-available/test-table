@@ -1,12 +1,13 @@
-import './App.css'
+import s from './App.module.scss'
+import {Tables} from "./widgets";
 import {UiInteractiveMenu} from "./shared";
 
 function App() {
     return (
-        <>
-            {/*<UiTable table={table}/>*/}
+        <div className={s.app}>
             <UiInteractiveMenu/>
-        </>
+            <Tables/>
+        </div>
     )
 }
 

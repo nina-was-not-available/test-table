@@ -1,6 +1,6 @@
 import s from './UiInteractiveMenu.module.scss'
 
-import {optionConfig, TOptionType} from "../../../entities";
+import {optionConfig, TOptionType, TTableType} from "../../../entities";
 import {useMenu} from "../../hooks";
 import {UiButton} from "../ui-button";
 import {UiInput} from "../ui-input";
@@ -8,6 +8,7 @@ import {UiSelect} from "../ui-select";
 import {UiMenu} from "../ui-menu";
 import {useState} from "react";
 import {tableService} from "../../services";
+import {v4} from "uuid";
 
 export function UiInteractiveMenu() {
     const {isOpen, setIsOpen, menuRef} = useMenu()
@@ -20,13 +21,37 @@ export function UiInteractiveMenu() {
 
     function handleAddTable() {
         if (validateCondition) {
-            const newTable = {
-                [firstCol]: [],
-                [secondCol]: [],
-                [thirdCol]: [],
-                [fourthCol.label]: [],
+            // const newTable = {
+            //     [firstCol]: [],
+            //     [secondCol]: [],
+            //     [thirdCol]: [],
+            //     [fourthCol.label]: [],
+            // }
+
+            const newTable: TTableType = {
+                first: {
+                    heading: firstCol,
+                    values: []
+                },
+                second: {
+                    heading: secondCol,
+                    values: []
+                },
+                third: {
+                    heading: thirdCol,
+                    values: []
+                },
+                fourth: {
+                    heading: fourthCol.label,
+                    values: []
+                },
+                id: v4()
             }
             tableService.handleCreate(newTable)
+            setFirstCol('')
+            setSecondCol('')
+            setThirdCol('')
+            setIsOpen(false)
         }
     }
 

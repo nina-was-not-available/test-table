@@ -6,4 +6,74 @@
   &__container {
     display: flex;
   }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    background-color: #0A508B;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &__column_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 30rem;
+    padding-inline: 6rem;
+  }
+
+  &__copy {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+
+    font-size: 18rem;
+    font-weight: 600;
+
+    cursor: pointer;
+  }
+
+  &__copy_icon {
+    height: 20rem;
+    width: auto;
+  }
+
+  &__column_values {
+    $this: &;
+    $this-border-right: #{$this}__border_right;
+
+    width: 100%;
+    background-color: #ffffff;
+    border-left: 1rem solid #D2D2D2;
+
+    &#{$this-border-right} {
+      border-right: 1rem solid #D2D2D2;
+    }
+  }
+
+  &__cell {
+    height: 40rem;
+    border-bottom: 1rem solid #D2D2D2;
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 10rem;
+
+    font-size: 16rem;
+    color: #000000;
+
+    caret-color: #3371A5;
+
+    &:focus {
+      border: 1rem solid #ADC6FF;
+      background-color: #F4F9FF;
+    }
+  }
 }
