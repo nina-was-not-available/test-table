@@ -1,6 +1,6 @@
 import s from './UiInteractiveMenu.module.scss'
 
-import {optionConfig, TOptionType, TTableType} from "../../../entities";
+import {optionConfig, OptionValue, TTableType} from "../../../entities";
 import {useMenu} from "../../hooks";
 import {UiButton} from "../ui-button";
 import {UiInput} from "../ui-input";
@@ -15,19 +15,12 @@ export function UiInteractiveMenu() {
     const [firstCol, setFirstCol] = useState('')
     const [secondCol, setSecondCol] = useState('')
     const [thirdCol, setThirdCol] = useState('')
-    const [fourthCol, setFourthCol] = useState(optionConfig[0])
+    const [fourthCol, setFourthCol] = useState('')
 
-    const validateCondition = !!(firstCol.trim() && secondCol.trim() && thirdCol.trim() && fourthCol.value.trim())
+    const validateCondition = !!(firstCol.trim() && secondCol.trim() && thirdCol.trim() && fourthCol.trim())
 
     function handleAddTable() {
         if (validateCondition) {
-            // const newTable = {
-            //     [firstCol]: [],
-            //     [secondCol]: [],
-            //     [thirdCol]: [],
-            //     [fourthCol.label]: [],
-            // }
-
             const newTable: TTableType = {
                 first: {
                     heading: firstCol,
@@ -42,7 +35,7 @@ export function UiInteractiveMenu() {
                     values: []
                 },
                 fourth: {
-                    heading: fourthCol.label,
+                    heading: optionConfig.find(el => el.value === fourthCol)?.label || fourthCol,
                     values: []
                 },
                 id: v4()
@@ -51,19 +44,20 @@ export function UiInteractiveMenu() {
             setFirstCol('')
             setSecondCol('')
             setThirdCol('')
+            setFourthCol('')
             setIsOpen(false)
         }
     }
 
     return (
         <div ref={menuRef} className={s.ui_interactive_menu}>
-            <UiButton handleClick={() => setIsOpen(!isOpen)} size={"md"}>Create table</UiButton>
+            <UiButton onClick={() => setIsOpen(!isOpen)} size={"md"}>Create table</UiButton>
             <UiMenu classname={s.ui_interactive_menu__body} isOpen={isOpen}>
-                <UiInput value={firstCol} handleChange={(e) => setFirstCol(e.currentTarget.value)} placeholder={'First column'}/>
-                <UiInput value={secondCol} handleChange={(e) => setSecondCol(e.currentTarget.value)} placeholder={'Second column'}/>
-                <UiInput value={thirdCol} handleChange={(e) => setThirdCol(e.currentTarget.value)} placeholder={'Third column'}/>
-                <UiSelect handleChange={(value: TOptionType) => setFourthCol(value)} options={optionConfig}/>
-                <UiButton disabled={!validateCondition} handleClick={handleAddTable} full size={"sm"}>ADD</UiButton>
+                <UiInput value={firstCol} onChange={(e) => setFirstCol(e.currentTarget.value)} placeholder={'First column'}/>
+                <UiInput value={secondCol} onChange={(e) => setSecondCol(e.currentTarget.value)} placeholder={'Second column'}/>
+                <UiInput value={thirdCol} onChange={(e) => setThirdCol(e.currentTarget.value)} placeholder={'Third column'}/>
+                <UiSelect handleChange={(value: OptionValue) => setFourthCol(value)} value={fourthCol} options={optionConfig} label={'Choose option...'}/>
+                <UiButton disabled={!validateCondition} onClick={handleAddTable} full size={"sm"}>ADD</UiButton>
             </UiMenu>
         </div>
     );

@@ -23,8 +23,16 @@
   }
 
   &__inner {
+    $this: &;
+    $this-option: #{$this}__option;
+
     font-size: 12rem;
+    font-weight: 400;
     color: #868A8D;
+
+    &#{$this-option} {
+      color: #000000;
+    }
   }
 
   &__icon {

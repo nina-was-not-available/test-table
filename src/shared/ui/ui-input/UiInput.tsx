@@ -1,23 +1,19 @@
-import {ChangeEvent} from "react";
+import {InputHTMLAttributes} from "react";
 import clsx from "clsx";
 
 import {IconNavArrow} from "../../../assets";
 import s from './UiInput.module.scss';
 
-type Props = {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
     icon?: boolean
-    classname?: string
     iconClassname?: string
-    placeholder?: string
-    handleChange?: (e: ChangeEvent<HTMLInputElement>) => void
-    value?: string
-};
+}
 
-export function UiInput({icon = false, classname, iconClassname, placeholder, value, handleChange}: Props) {
+export function UiInput({icon = false, iconClassname, placeholder, value, onChange}: Props) {
     return (
-        <div className={clsx(s.ui_input, classname)}>
-            <input onChange={handleChange} value={value} placeholder={placeholder} type="text"
-                   className={clsx(s.ui_input__input)}/>
+        <div className={s.ui_input}>
+            <input onChange={onChange} value={value} placeholder={placeholder} type="text"
+                   className={s.ui_input__input}/>
             {icon && <img src={IconNavArrow} className={clsx(s.ui_input__icon, iconClassname)} alt="nav-arrow"/>}
         </div>
     );
