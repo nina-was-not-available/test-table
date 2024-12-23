@@ -23,7 +23,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-        "@typescript-eslint/no-explicit-any": "on",
+        "@typescript-eslint/no-explicit-any": "warn",
         "comma-dangle": ["error", "always-multiline"],
         "semi": ["error", "always"],
         "eol-last": ["error", "always"],

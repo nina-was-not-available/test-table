@@ -1,1 +1,1 @@
-export * from './useMenu.ts'
+export * from './useMenu.ts';

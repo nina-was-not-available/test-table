@@ -17,4 +17,4 @@ export const optionConfig: TOptionType[] = [
         label: 'Home',
         value: OptionValue.Home,
     },
-]
+];

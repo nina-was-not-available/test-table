@@ -1,9 +1,8 @@
-import s from './UiSelect.module.scss'
+import s from './UiSelect.module.scss';
 import clsx from "clsx";
-
 import {OptionValue, TOptionType} from "../../../entities";
-import {IconNavArrow} from "../../../assets";
 import {useMenu} from "../../hooks";
+import {IconNavArrow} from "../../../assets";
 import {UiMenu} from "../ui-menu";
 
 type Props = {
@@ -15,15 +14,15 @@ type Props = {
 
 
 export function UiSelect({options, handleChange, label, value}: Props) {
-    const {isOpen, setIsOpen, menuRef} = useMenu()
+    const {isOpen, setIsOpen, menuRef} = useMenu();
 
 
     function handleOptionClick(option: OptionValue) {
-        handleChange(option)
-        setIsOpen(!isOpen)
+        handleChange(option);
+        setIsOpen(!isOpen);
     }
 
-    const option = options.find(el => el.value === value)?.label
+    const option = options.find(el => el.value === value)?.label;
 
     return (
         <div ref={menuRef} className={clsx(s.ui_select, isOpen && s.ui_select__open)}>

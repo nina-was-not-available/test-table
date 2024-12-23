@@ -1,6 +1,6 @@
+import s from './UiMenu.module.scss';
 import {ReactNode, useState} from "react";
 import {useSpring, animated} from "react-spring";
-import s from './UiMenu.module.scss'
 import clsx from "clsx";
 
 type Props = {

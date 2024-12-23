@@ -1,1 +1,1 @@
-export {UiTable} from './UiTable.tsx'
+export {UiTable} from './UiTable.tsx';

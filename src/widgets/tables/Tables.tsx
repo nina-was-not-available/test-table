@@ -1,4 +1,4 @@
-import s from './Tables.module.scss'
+import s from './Tables.module.scss';
 import {useEffect, useState} from "react";
 import { TTableType} from "../../entities";
 import {tableService, UiTable} from "../../shared";
@@ -6,11 +6,11 @@ import {tableService, UiTable} from "../../shared";
 
 
 export function Tables() {
-    const [tables, setTables] = useState<TTableType[]>(tableService.tableBs.getValue())
+    const [tables, setTables] = useState<TTableType[]>(tableService.tableBs.getValue());
 
     useEffect(() => {
-        const subscription = tableService.tableBs.subscribe(setTables)
-        return () => subscription.unsubscribe()
+        const subscription = tableService.tableBs.subscribe(setTables);
+        return () => subscription.unsubscribe();
     }, []);
 
     const rows = tables.reduce<TTableType[][]>((acc, table, index) => {

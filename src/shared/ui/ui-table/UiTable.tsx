@@ -1,9 +1,9 @@
-import s from './UiTable.module.scss'
-import {TTableType} from "../../../entities";
+import s from './UiTable.module.scss';
+import {ChangeEvent} from "react";
 import clsx from "clsx";
+import {TTableType} from "../../../entities";
 import {tableService} from "../../services";
 import {IconCopy} from "../../../assets";
-import {ChangeEvent} from "react";
 
 type Props = {
     table: TTableType,
@@ -16,7 +16,7 @@ export function UiTable({table, containerClassName}: Props) {
 
 
     function handleInputChange(e: ChangeEvent<HTMLInputElement>, key: keyof Omit<TTableType, 'id'>, cellIndex: number) {
-        tableService.updateField(table.id, key as keyof Omit<TTableType, 'id'>, e.currentTarget.value, cellIndex)
+        tableService.updateField(table.id, key as keyof Omit<TTableType, 'id'>, e.currentTarget.value, cellIndex);
     }
 
     function fillValues(values: (string | undefined)[] = []): string[] {
@@ -47,12 +47,12 @@ export function UiTable({table, containerClassName}: Props) {
                                             <input className={s.ui_table__input} value={inputValue || ''}
                                                    onChange={(e) => handleInputChange(e, key as keyof Omit<TTableType, 'id'>, cellIndex)}/>
                                         </div>
-                                    )
+                                    );
                                 })}
                             </div>
                         </div>
 
-                    )
+                    );
                 })}
             </div>
         </div>

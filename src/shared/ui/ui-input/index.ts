@@ -1,1 +1,1 @@
-export {UiInput} from './UiInput.tsx'
+export {UiInput} from './UiInput.tsx';

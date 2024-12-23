@@ -1,1 +1,1 @@
-export {UiInteractiveMenu} from './UiInteractiveMenu.tsx'
+export {UiInteractiveMenu} from './UiInteractiveMenu.tsx';

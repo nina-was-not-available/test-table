@@ -1,1 +1,1 @@
-export { UiSelect } from './UiSelect.tsx'
+export { UiSelect } from './UiSelect.tsx';

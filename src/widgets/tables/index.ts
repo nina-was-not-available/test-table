@@ -1,1 +1,1 @@
-export {Tables} from './Tables.tsx'
+export {Tables} from './Tables.tsx';

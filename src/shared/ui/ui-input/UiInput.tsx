@@ -17,4 +17,5 @@ export function UiInput({icon = false, iconClassname, placeholder, value, onChan
             {icon && <img src={IconNavArrow} className={clsx(s.ui_input__icon, iconClassname)} alt="nav-arrow"/>}
         </div>
     );
-}
+};
+

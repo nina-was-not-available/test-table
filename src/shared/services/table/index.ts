@@ -1,1 +1,1 @@
-export {tableService} from './table.service.ts'
+export {tableService} from './table.service.ts';

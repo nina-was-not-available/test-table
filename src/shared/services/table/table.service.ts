@@ -5,14 +5,14 @@ class TableService {
     constructor() {
     }
 
-    public tableBs = new BehaviorSubject<TTableType[]>([])
+    public tableBs = new BehaviorSubject<TTableType[]>([]);
 
     public handleCreate(tableValues: TTableType) {
-        this.tableBs.next([...this.tableBs.getValue(), tableValues])
+        this.tableBs.next([...this.tableBs.getValue(), tableValues]);
     }
 
     public handleCopy(tableValues: TTableType) {
-        this.tableBs.next([...this.tableBs.getValue(), structuredClone(tableValues)])
+        this.tableBs.next([...this.tableBs.getValue(), structuredClone(tableValues)]);
     }
 
 
@@ -21,11 +21,11 @@ class TableService {
         const relatedTables = tables.filter(table => table.id === tableId);
         if (relatedTables.length > 0) {
             relatedTables.forEach(table => {
-                table[key].values[cellIndex] = value
+                table[key].values[cellIndex] = value;
             });
             this.tableBs.next([...tables]);
         }
     }
 }
 
-export const tableService = new TableService()
+export const tableService = new TableService();

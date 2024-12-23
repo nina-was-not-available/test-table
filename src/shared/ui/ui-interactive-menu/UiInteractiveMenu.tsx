@@ -1,51 +1,50 @@
-import s from './UiInteractiveMenu.module.scss'
-
+import s from './UiInteractiveMenu.module.scss';
+import {useState} from "react";
+import {v4} from "uuid";
 import {optionConfig, OptionValue, TTableType} from "../../../entities";
+import {tableService} from "../../services";
 import {useMenu} from "../../hooks";
 import {UiButton} from "../ui-button";
 import {UiInput} from "../ui-input";
 import {UiSelect} from "../ui-select";
 import {UiMenu} from "../ui-menu";
-import {useState} from "react";
-import {tableService} from "../../services";
-import {v4} from "uuid";
 
 export function UiInteractiveMenu() {
-    const {isOpen, setIsOpen, menuRef} = useMenu()
-    const [firstCol, setFirstCol] = useState('')
-    const [secondCol, setSecondCol] = useState('')
-    const [thirdCol, setThirdCol] = useState('')
-    const [fourthCol, setFourthCol] = useState('')
+    const {isOpen, setIsOpen, menuRef} = useMenu();
+    const [firstCol, setFirstCol] = useState('');
+    const [secondCol, setSecondCol] = useState('');
+    const [thirdCol, setThirdCol] = useState('');
+    const [fourthCol, setFourthCol] = useState('');
 
-    const validateCondition = !!(firstCol.trim() && secondCol.trim() && thirdCol.trim() && fourthCol.trim())
+    const validateCondition = !!(firstCol.trim() && secondCol.trim() && thirdCol.trim() && fourthCol.trim());
 
     function handleAddTable() {
         if (validateCondition) {
             const newTable: TTableType = {
                 first: {
                     heading: firstCol,
-                    values: []
+                    values: [],
                 },
                 second: {
                     heading: secondCol,
-                    values: []
+                    values: [],
                 },
                 third: {
                     heading: thirdCol,
-                    values: []
+                    values: [],
                 },
                 fourth: {
                     heading: optionConfig.find(el => el.value === fourthCol)?.label || fourthCol,
-                    values: []
+                    values: [],
                 },
-                id: v4()
-            }
-            tableService.handleCreate(newTable)
-            setFirstCol('')
-            setSecondCol('')
-            setThirdCol('')
-            setFourthCol('')
-            setIsOpen(false)
+                id: v4(),
+            };
+            tableService.handleCreate(newTable);
+            setFirstCol('');
+            setSecondCol('');
+            setThirdCol('');
+            setFourthCol('');
+            setIsOpen(false);
         }
     }
 
@@ -61,4 +60,4 @@ export function UiInteractiveMenu() {
             </UiMenu>
         </div>
     );
-}
+};

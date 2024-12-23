@@ -1,1 +1,1 @@
-export * from './option.config.ts'
+export * from './option.config.ts';

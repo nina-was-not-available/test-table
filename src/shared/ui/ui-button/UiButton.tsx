@@ -1,6 +1,6 @@
-import s from "./UiButton.module.scss"
-import clsx from "clsx";
+import s from "./UiButton.module.scss";
 import {ButtonHTMLAttributes} from "react";
+import clsx from "clsx";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>{
     full?: boolean
